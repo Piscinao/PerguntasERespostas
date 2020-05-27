@@ -3,16 +3,13 @@ const app = express();
 
 //motor html para uso ejs
 app.set('view engine', 'ejs');
+//carregar arquivos estaticos
+app.use(express.static('public'));
 
 app.get("/", (req,res) => {
-  var nome = "Henrique Jensen";
-  var lang = "JavaScript";
-  res.render("index", {
-    nome: nome,
-    lang: lang,
-    empresa: "FireUX",
-    inscritos: 8000
-  });
+
+  res.render("index");
+ 
 });
 
 app.listen(8080,()=> {
