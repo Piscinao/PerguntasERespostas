@@ -1,0 +1,12 @@
+{
+  "name": "PerguntasERespostas",
+  "version": "1.0.0",
+  "description": "ProjetoDeAprendizadoNode",
+  "main": "index.js",
+  "author": "Piscinao",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1"
+  }
+}
