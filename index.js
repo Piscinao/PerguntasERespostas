@@ -5,7 +5,14 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get("/", (req,res) => {
-  res.render("index")
+  var nome = "Henrique Jensen";
+  var lang = "JavaScript";
+  res.render("index", {
+    nome: nome,
+    lang: lang,
+    empresa: "FireUX",
+    inscritos: 8000
+  });
 });
 
 app.listen(8080,()=> {
