@@ -2,10 +2,34 @@
   <body>
     <%- include ("./partials/navbar.ejs"); %>
 
-    <h1>Bootstrap Style</h1>
-  
+    
+    
 
 
+      <div class="container">
+        <hr>
+        <h1>Lista - Perguntas e Respostas</h1>
+        <hr>
+        <a href="/perguntar" class="btn btn-success">Perguntar</a>
+        <hr>
+        <% perguntas.forEach(pergunta => {  %>
+        <br>
+      <div class="card">
+        <div class="card-body">
+          
+          <h3><%= pergunta.titulo %></h3>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn btn-success">Responder</button>
+
+        </div>
+
+      </div>
+    
+     <% }); %>
+
+    </div>
   </body>
 
   <%- include ("./partials/footer.ejs"); %>

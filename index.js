@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
-const perguntaModel = require("./database/Pergunta");
+const Pergunta = require("./database/Pergunta");
 
 //Database
 
@@ -32,8 +32,14 @@ app.use(bodyParser.json());
 
 //Rotas
 app.get("/", (req,res) => {
+    Pergunta.findAll({raw: true}).then(perguntas => {
+    console.log(perguntas);
+    res.render("index", {
+      perguntas, perguntas
+    });
+  });
+  //select all *from perguntas
 
-  res.render("index");
  
 });
 
@@ -45,9 +51,18 @@ app.get("/perguntar", (req,res) => {
 
 
 app.post("/salvarpergunta", (req, res) => {
+
   var titulo = req.body.titulo;
   var descricao = req.body.descricao;
-  res.send("Formulário recebido! titulo " + titulo + " " + " descricao " + descricao );
+
+  Pergunta.create({
+    titulo: titulo,
+    descricao: descricao
+  }).then(() => {
+    res.redirect("/");
+  });
+
+ 
 
 });
 
